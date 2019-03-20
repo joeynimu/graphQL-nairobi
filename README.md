@@ -5,6 +5,7 @@
   - Learn what is graphQL and its advantages
   - Learn how to instantiate a graphQL server
   - Learn how to define typeDefs, Queries, Mutations and Resolvers
+  - How to build a GraphQL wrapper for any REST API
   - Connecting to a DB and be able to do to CRUD operations using graphQL
   - Securing your API
   - Integration with different frontends (React, Vue, Android)
