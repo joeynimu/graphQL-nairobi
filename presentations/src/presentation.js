@@ -3,7 +3,6 @@ import React from 'react';
 
 // Import Spectacle Core tags
 import {
-  Fit,
   Deck,
   Heading,
   ListItem,
@@ -15,9 +14,7 @@ import {
   Notes,
   Code,
   CodePane,
-  BlockQuote,
-  Fill,
-  Layout
+  BlockQuote
 } from 'spectacle';
 
 // Import theme
