@@ -31,7 +31,8 @@ const IMAGES = {
   pic_one: `${imagePath}pic_one.png`,
   pic_two: `${imagePath}pic_two.png`,
   pic_three: `${imagePath}pic_three.png`,
-  pic_four: `${imagePath}pic_four.png`
+  pic_four: `${imagePath}pic_four.png`,
+  pic_five: `${imagePath}pic_five.gif`
 };
 
 const learningItems = [
@@ -358,7 +359,7 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide transition={[ 'slide' ]}>
           <Heading size={1} fit>
-            Type definations <GraphQLTag>(typeDefs)</GraphQLTag>
+            Type definations <GraphQLTag>(SDL)</GraphQLTag>
           </Heading>
           <BlockQuote textAlign="center">
             This describes the type and shape of data we can ask for from our API
@@ -367,47 +368,121 @@ export default class Presentation extends React.Component {
         <Slide transition={[ 'slide' ]}>
           <Image src={IMAGES.pic_four} alt="sample" width="100%" height="auto" />
         </Slide>
-        <Slide transition={['slide']} bgColor='#2A2733'>
+        <Slide transition={[ 'slide' ]} bgColor="#2A2733">
           <CodePane lang="javascript" style={{ fontSize: '32px' }} source={PersonType} theme="dark" />
         </Slide>
-        <Slide transition={['slide']} bgColor='#2A2733'>
+        <Slide transition={[ 'slide' ]} bgColor="#2A2733">
           <CodePane lang="javascript" style={{ fontSize: '32px' }} source={PeopleType} theme="dark" />
         </Slide>
-        <Slide transition={['slide']} bgColor='#2A2733'>
-          <Heading fit textColor="#fff">Special Query type</Heading>
+        <Slide transition={[ 'slide' ]} bgColor="#2A2733">
+          <Heading fit textColor="#fff">
+            Special Query type
+          </Heading>
           <CodePane lang="javascript" style={{ fontSize: '32px' }} source={QueryRootType} theme="dark" />
         </Slide>
-        <Slide transition={['slide']} bgColor='#2A2733'>
-          <Heading fit textColor="#fff">Passing Parameters</Heading>
+        <Slide transition={[ 'slide' ]} bgColor="#2A2733">
+          <Heading fit textColor="#fff">
+            Passing Parameters
+          </Heading>
           <CodePane lang="javascript" style={{ fontSize: '32px' }} source={FindPersonQuery} theme="dark" />
         </Slide>
-        <Slide transition={['slide']} bgColor='#2A2733'>
-          <Heading fit textColor="#fff">Other special root types</Heading>
+        <Slide transition={[ 'slide' ]} bgColor="secondary">
+          <Heading fit textColor="#fff">
+            Built in scalar types
+          </Heading>
+          <List style={listStyle}>
+            <ListItem style={{ color: '#fff' }}>
+              <strong>Int</strong>: A signed 32‐bit integer.
+            </ListItem>
+            <ListItem style={{ color: '#fff' }}>
+              <strong>Float</strong>: A signed double-precision floating-point value.
+            </ListItem>
+            <ListItem style={{ color: '#fff' }}>
+              <strong>String</strong>: A UTF‐8 character sequence.
+            </ListItem>
+            <ListItem style={{ color: '#fff' }}>
+              <strong>Boolean</strong>: true or false.
+            </ListItem>
+            <ListItem style={{ color: '#fff' }}>
+              <strong>ID</strong>: The ID scalar type represents a unique identifier
+            </ListItem>
+          </List>
+        </Slide>
+        <Slide transition={[ 'slide' ]} bgColor="#2A2733">
+          <Heading fit textColor="#fff">
+            Other special root types
+          </Heading>
           <List style={listStyle}>
             <Appear>
-              <ListItem style={{color: 'white'}}>Mutation type</ListItem>
+              <ListItem style={{ color: 'white' }}>Mutation type</ListItem>
             </Appear>
             <Appear>
               <ListItem style={{ color: 'white' }}>Subscription type</ListItem>
             </Appear>
           </List>
         </Slide>
-        <Slide transition={['slide']} bgColor='#2A2733'>
-          <Heading fit textColor="#fff">E.g of a Mutation</Heading>
+        <Slide transition={[ 'slide' ]} bgColor="#2A2733">
+          <Heading fit textColor="#fff">
+            E.g of a Mutation
+          </Heading>
           <CodePane lang="javascript" style={{ fontSize: '30px' }} source={MutationRootTypes} theme="dark" />
         </Slide>
-        <Slide transition={['slide']} bgColor='#2A2733'>
-          <Heading fit textColor="#fff">E.g of a Subscription</Heading>
+        <Slide transition={[ 'slide' ]} bgColor="#2A2733">
+          <Heading fit textColor="#fff">
+            E.g of a Subscription
+          </Heading>
           <CodePane lang="javascript" style={{ fontSize: '30px' }} source={SubscriptionType} theme="dark" />
         </Slide>
-        <Slide transition={['slide']} bgColor='#2A2733'>
-          <Heading fit textColor="#fff">All Root types</Heading>
+        <Slide transition={[ 'slide' ]} bgColor="#2A2733">
+          <Heading fit textColor="#fff">
+            All Root types
+          </Heading>
           <CodePane lang="javascript" style={{ fontSize: '30px' }} source={AllRootTypes} theme="dark" />
+        </Slide>
+        <Slide transition={[ 'slide' ]} bgColor="#2A2733">
+          <Heading fit textColor="#fff">
+            Resolvers
+          </Heading>
+          <CodePane lang="javascript" style={{ fontSize: '30px' }} source={Resolvers} theme="dark" />
+        </Slide>
+        <Slide transition={[ 'slide' ]} bgColor="#2A2733">
+          <Heading fit textColor="#fff">
+            Resolver signature
+          </Heading>
+          <List style={listStyle}>
+            <Appear>
+              <ListItem style={{color: '#fff'}}><strong>root </strong> —  result from the previous / parent type</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem style={{ color: '#fff' }}><strong>args </strong> —  arguments provided to the resolver's field</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem style={{ color: '#fff' }}><strong>context </strong> —  a Mutable object that is provided to all resolvers</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem style={{ color: '#fff' }}><strong>info</strong>  —  field specific information relevant to the query (rarely used)</ListItem>
+            </Appear>
+          </List>
+        </Slide>
+        <Slide transition={[ 'slide' ]} bgColor="#2A2733">
+          <Heading fit textColor="#fff">Where the code at bruh?</Heading>
+          <Image src={IMAGES.pic_five} alt='gif' />
         </Slide>
       </Deck>
     );
   }
 }
+
+const Resolvers = `
+  const resolvers = {
+    Query: {
+      people: (root, args, context, info) => {
+        ...
+      }
+      person: (root, args, context, info) => {
+        ...
+      }
+  }`;
 
 const PersonType = `type person {
   name: String!
