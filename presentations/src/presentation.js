@@ -2,7 +2,23 @@
 import React from 'react';
 
 // Import Spectacle Core tags
-import { Deck, Heading, ListItem, List, Appear, Image, Slide, Text, Notes, Code, CodePane } from 'spectacle';
+import {
+  Fit,
+  Deck,
+  Heading,
+  ListItem,
+  List,
+  Appear,
+  Image,
+  Slide,
+  Text,
+  Notes,
+  Code,
+  CodePane,
+  BlockQuote,
+  Fill,
+  Layout
+} from 'spectacle';
 
 // Import theme
 import createTheme from 'spectacle/lib/themes/default';
@@ -14,7 +30,8 @@ const IMAGES = {
   playground_demo: `${imagePath}playground_demo.gif`,
   pic_one: `${imagePath}pic_one.png`,
   pic_two: `${imagePath}pic_two.png`,
-  pic_three: `${imagePath}pic_three.png`
+  pic_three: `${imagePath}pic_three.png`,
+  pic_four: `${imagePath}pic_four.png`
 };
 
 const learningItems = [
@@ -233,15 +250,15 @@ export default class Presentation extends React.Component {
           </Notes>
         </Slide>
         <Slide transition={[ 'slide' ]}>
-          <Heading caps siz={1} fit>
+          <Heading caps size={1} fit>
             Advantages of using <GraphQLTag>GraphQL</GraphQLTag>
           </Heading>
           <List style={listStyle}>
             <Appear>
-              <ListItem style={{fontSize: '24px'}}>Declarative data fetching</ListItem>
+              <ListItem style={{ fontSize: '24px' }}>Declarative data fetching</ListItem>
             </Appear>
             <Appear>
-              <ListItem style={{ fontSize: '24px' }}>No overfetching/under fetching</ListItem>
+              <ListItem style={{ fontSize: '24px' }}>No over-fetching/under-fetching</ListItem>
             </Appear>
             <Appear>
               <ListItem style={{ fontSize: '24px' }}>Build one backend, consume it everywhere</ListItem>
@@ -261,9 +278,191 @@ export default class Presentation extends React.Component {
             <Appear>
               <ListItem style={{ fontSize: '24px' }}>A growing ecosystem of tools</ListItem>
             </Appear>
+            <Appear>
+              <ListItem style={{ fontSize: '24px' }}>One single source of truth</ListItem>
+            </Appear>
           </List>
+        </Slide>
+        <Slide transition={[ 'slide' ]}>
+          <Heading caps size={1} fit>
+            Disadvantages of using <GraphQLTag>GraphQL</GraphQLTag>
+          </Heading>
+          <List style={listStyle}>
+            <Appear>
+              <ListItem style={{ fontSize: '24px' }}>In large applications, queries can become complex</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem style={{ fontSize: '24px' }}>Rate limiting</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem style={{ fontSize: '24px' }}>Complexity in implementing a cache strategy</ListItem>
+            </Appear>
+          </List>
+        </Slide>
+        <Slide transition={[ 'slide' ]}>
+          <Heading caps size={1} fit>
+            <GraphQLTag>GraphQL</GraphQLTag> alternatives
+          </Heading>
+          <List style={listStyle}>
+            <Appear>
+              <ListItem style={{ fontSize: '28px' }}>REST</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem style={{ fontSize: '28px' }}>SOAP</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem style={{ fontSize: '28px' }}>RPC</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem style={{ fontSize: '28px' }}>Falcor</ListItem>
+            </Appear>
+          </List>
+        </Slide>
+        <Slide transition={[ 'slide' ]}>
+          <Heading caps size={1} fit>
+            Who is using <GraphQLTag>GraphQL</GraphQLTag>?
+          </Heading>
+          <List style={listStyle}>
+            <ListItem>Facebook</ListItem>
+            <ListItem>Github</ListItem>
+            <ListItem>AirBnB</ListItem>
+            <ListItem>Netflix</ListItem>
+            <ListItem>The New York Times</ListItem>
+            <ListItem>Twitter</ListItem>
+            <ListItem>Pintrest</ListItem>
+            <ListItem>Twiga</ListItem>
+            <ListItem>More...</ListItem>
+          </List>
+        </Slide>
+        <Slide transition={[ 'slide' ]}>
+          <Heading caps size={1} fit>
+            What you it takes to build a <GraphQLTag>GraphQL</GraphQLTag> API
+          </Heading>
+          <List style={listStyle}>
+            <Appear>
+              <ListItem>
+                <Code lang="javascript">typDefs</Code>
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                <Code lang="javascript">Resolvers</Code>
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                <Code lang="javascript">Server</Code>
+              </ListItem>
+            </Appear>
+          </List>
+        </Slide>
+        <Slide transition={[ 'slide' ]}>
+          <Heading size={1} fit>
+            Type definations <GraphQLTag>(typeDefs)</GraphQLTag>
+          </Heading>
+          <BlockQuote textAlign="center">
+            This describes the type and shape of data we can ask for from our API
+          </BlockQuote>
+        </Slide>
+        <Slide transition={[ 'slide' ]}>
+          <Image src={IMAGES.pic_four} alt="sample" width="100%" height="auto" />
+        </Slide>
+        <Slide transition={['slide']} bgColor='#2A2733'>
+          <CodePane lang="javascript" style={{ fontSize: '32px' }} source={PersonType} theme="dark" />
+        </Slide>
+        <Slide transition={['slide']} bgColor='#2A2733'>
+          <CodePane lang="javascript" style={{ fontSize: '32px' }} source={PeopleType} theme="dark" />
+        </Slide>
+        <Slide transition={['slide']} bgColor='#2A2733'>
+          <Heading fit textColor="#fff">Special Query type</Heading>
+          <CodePane lang="javascript" style={{ fontSize: '32px' }} source={QueryRootType} theme="dark" />
+        </Slide>
+        <Slide transition={['slide']} bgColor='#2A2733'>
+          <Heading fit textColor="#fff">Passing Parameters</Heading>
+          <CodePane lang="javascript" style={{ fontSize: '32px' }} source={FindPersonQuery} theme="dark" />
+        </Slide>
+        <Slide transition={['slide']} bgColor='#2A2733'>
+          <Heading fit textColor="#fff">Other special root types</Heading>
+          <List style={listStyle}>
+            <Appear>
+              <ListItem style={{color: 'white'}}>Mutation type</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem style={{ color: 'white' }}>Subscription type</ListItem>
+            </Appear>
+          </List>
+        </Slide>
+        <Slide transition={['slide']} bgColor='#2A2733'>
+          <Heading fit textColor="#fff">E.g of a Mutation</Heading>
+          <CodePane lang="javascript" style={{ fontSize: '30px' }} source={MutationRootTypes} theme="dark" />
+        </Slide>
+        <Slide transition={['slide']} bgColor='#2A2733'>
+          <Heading fit textColor="#fff">E.g of a Subscription</Heading>
+          <CodePane lang="javascript" style={{ fontSize: '30px' }} source={SubscriptionType} theme="dark" />
+        </Slide>
+        <Slide transition={['slide']} bgColor='#2A2733'>
+          <Heading fit textColor="#fff">All Root types</Heading>
+          <CodePane lang="javascript" style={{ fontSize: '30px' }} source={AllRootTypes} theme="dark" />
         </Slide>
       </Deck>
     );
   }
 }
+
+const PersonType = `type person {
+  name: String!
+  vehicles: [String]
+  starShips: [String]
+  gender: String
+  films: [String]
+  species: [String]
+}`;
+
+const PeopleType = `type People{
+  people: [person]!
+}`;
+
+const QueryRootType = `
+  type Query {
+      people: [person]!
+    }
+`;
+
+const AllRootTypes = `
+  type Query {
+    ...
+  }
+  type Mutation {
+    ...
+  }
+
+  type Subscription {
+    ...
+  }
+`;
+
+const FindPersonQuery = `
+  type Query {
+      people: [person]!
+      person(id: String!): person ⬅
+    }
+`;
+
+const MutationRootTypes = `
+ type Mutation {
+    createPerson(name: String!): Person! # POST
+    updateUser(id: ID!, name: String!): Person # PUT
+    deleteUser(id: ID!): Person # DELETE
+  }
+`;
+
+const SubscriptionType = `
+  type Comment {
+    id: String
+    content: String
+  }
+
+  type Subscription {
+    commentAdded(repoFullName: String!): Comment
+  }
+`;
