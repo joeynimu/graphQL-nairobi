@@ -29,7 +29,8 @@ const IMAGES = {
   pic_two: `${imagePath}pic_two.png`,
   pic_three: `${imagePath}pic_three.png`,
   pic_four: `${imagePath}pic_four.png`,
-  pic_five: `${imagePath}pic_five.gif`
+  pic_five: `${imagePath}pic_five.gif`,
+  pic_six: `${imagePath}pic_six.gif`
 };
 
 const learningItems = [
@@ -464,6 +465,24 @@ export default class Presentation extends React.Component {
         <Slide transition={[ 'slide' ]} bgColor="#2A2733">
           <Heading fit textColor="#fff">Where the code at bruh?</Heading>
           <Image src={IMAGES.pic_five} alt='gif' />
+        </Slide>
+        <Slide transition={[ 'slide' ]} bgColor="#2A2733">
+          <Image src={IMAGES.pic_six} alt='gif' />
+        </Slide>
+        <Slide transition={['slide']} bgColor="#2A2733">
+          <Heading fit textColor="#fff">
+            Advanced topics
+          </Heading>
+          <List style={listStyle}>
+            <Appear><ListItem>Support for PUT, DELETE, UPDATE methods</ListItem></Appear>
+            <Appear><ListItem>Authentication and Authorization</ListItem></Appear>
+            <Appear><ListItem>Performance</ListItem></Appear>
+            <Appear><ListItem>Realtime</ListItem></Appear>
+            <Appear><ListItem></ListItem></Appear>
+          </List>
+        </Slide>
+        <Slide>
+          <Heading>Thank you slide</Heading>
         </Slide>
       </Deck>
     );
